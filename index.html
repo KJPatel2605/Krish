@@ -24,50 +24,80 @@
         <p>When a serious crash happens, victims may be unable to call for help due to injuries or loss of consciousness. In remote areas, poor signal reception makes calling for help even harder.</p>
     </section>
 
-    <section class="solution">
-        <h2>Our Solution: AutoSOS</h2>
-        <img src="solution.jpg" alt="Crash detection solution">
-        <p>AutoSOS is a smart crash detection device that ensures emergency services are alerted—even when the driver is unable to call for help.</p>
-        <ul>
-            <li>Detects different types of crashes, including frontal, side, and rear collisions.</li>
-            <li>Uses built-in cameras to confirm the accident.</li>
-            <li>Automatically alerts emergency services and family members.</li>
-            <li>If no signal is available, it tries to connect using nearby phones.</li>
-            <li>If no phones are available, it uses iPhone 14 Pro+ satellite calling.</li>
-            <li>An alarm and flashing lights activate to attract nearby assistance.</li>
-        </ul>
-    </section>
 
-    <section class="how-it-works">
-        <h2>How AutoSOS Works</h2>
-        <div class="steps">
-            <div class="step">
-                <img src="detection.jpg" alt="Crash detection">
-                <h3>1. Detecting the Crash</h3>
-                <p>AutoSOS detects impact using advanced motion and pressure sensors. It can identify frontal, side, rear, and rollover crashes.</p>
+    <button onclick="showTab('tab')">Table</button>
+    <button onclick="showTab('sol')">Solution</button>
+    <button onclick="showTab('hdiw')">How do it work</button>
+
+
+    <div id="tab" style="display:none;">
+    
+    </div>
+
+    <script>
+        function showTab(tabId) {
+       
+            var sections = document.querySelectorAll('#tab, #sol, #hdiw');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+
+            var selectedTab = document.getElementById(tabId);
+            selectedTab.style.display = 'block';
+        }
+    </script>
+
+
+    <div id="sol" style="display:none;">
+        <section class="solution">
+            <h2>Our Solution: AutoSOS</h2>
+            <img src="solution.jpg" alt="Crash detection solution">
+            <p>AutoSOS is a smart crash detection device that ensures emergency services are alerted—even when the driver is unable to call for help.</p>
+            <ul>
+                <li>Detects different types of crashes, including frontal, side, and rear collisions.</li>
+                <li>Uses built-in cameras to confirm the accident.</li>
+                <li>Automatically alerts emergency services and family members.</li>
+                <li>If no signal is available, it tries to connect using nearby phones.</li>
+                <li>If no phones are available, it uses iPhone 14 Pro+ satellite calling.</li>
+                <li>An alarm and flashing lights activate to attract nearby assistance.</li>
+            </ul>
+        </section>
+    </div>
+
+
+    <div id="hdiw" style="display:none;">
+        <section class="how-it-works">
+            <h2>How AutoSOS Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <img src="detection.jpg" alt="Crash detection">
+                    <h3>1. Detecting the Crash</h3>
+                    <p>AutoSOS detects impact using advanced motion and pressure sensors. It can identify frontal, side, rear, and rollover crashes.</p>
+                </div>
+                <div class="step">
+                    <img src="camera.jpg" alt="Camera verification">
+                    <h3>2. Verifying the Crash</h3>
+                    <p>Built-in front and rear cameras analyze the accident. If confirmed, AutoSOS moves to the next step.</p>
+                </div>
+                <div class="step">
+                    <img src="alert.jpg" alt="Emergency Alert">
+                    <h3>3. Sending Emergency Alerts</h3>
+                    <p>AutoSOS immediately alerts 911 and sends your location to family members.</p>
+                </div>
+                <div class="step">
+                    <img src="satellite.jpg" alt="Satellite backup">
+                    <h3>4. No Signal? No Problem!</h3>
+                    <p>If no network is available, AutoSOS will try to use nearby phones to send the alert. If that fails, it will use iPhone 14 Pro+ satellite communication.</p>
+                </div>
+                <div class="step">
+                    <img src="alert.jpg" alt="Alarm Activation">
+                    <h3>5. Attracting Nearby Help</h3>
+                    <p>If emergency services are delayed, AutoSOS activates a loud alarm and flashing lights to signal for nearby assistance.</p>
+                </div>
             </div>
-            <div class="step">
-                <img src="camera.jpg" alt="Camera verification">
-                <h3>2. Verifying the Crash</h3>
-                <p>Built-in front and rear cameras analyze the accident. If confirmed, AutoSOS moves to the next step.</p>
-            </div>
-            <div class="step">
-                <img src="alert.jpg" alt="Emergency Alert">
-                <h3>3. Sending Emergency Alerts</h3>
-                <p>AutoSOS immediately alerts 911 and sends your location to family members.</p>
-            </div>
-            <div class="step">
-                <img src="satellite.jpg" alt="Satellite backup">
-                <h3>4. No Signal? No Problem!</h3>
-                <p>If no network is available, AutoSOS will try to use nearby phones to send the alert. If that fails, it will use iPhone 14 Pro+ satellite communication.</p>
-            </div>
-            <div class="step">
-                <img src="alert.jpg" alt="Alarm Activation">
-                <h3>5. Attracting Nearby Help</h3>
-                <p>If emergency services are delayed, AutoSOS activates a loud alarm and flashing lights to signal for nearby assistance.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <section class="contact">
         <h2>Contact Us</h2>
@@ -76,7 +106,7 @@
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+            <button class="buttons" type="submit">Send Message</button>
         </form>
     </section>
 
@@ -84,8 +114,6 @@
         <p>&copy; 2025 AutoSOS. All Rights Reserved.</p>
     </footer>
 
-    <!-- Include the JS file -->
-    <script src="script.js"></script>
+
 </body>
 </html>
-
