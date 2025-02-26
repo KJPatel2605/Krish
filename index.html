@@ -12,6 +12,7 @@
         <p>Smart Crash Detection & Emergency Alert System</p>
     </header>
 
+  
     <section class="hero">
         <img src="car-accident.jpg" alt="Car Accident Detection">
         <h2>Car Accidents Are a Global Crisis</h2>
@@ -93,17 +94,39 @@
         </form>
     </section>
     
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLNdaD5IJUsNVIMOvpzeB9cH47fmCNHUx0MH-iBzbG8SX5GcKD5ELKr_dmx_wayX95ZQ/exec'
-    const form = document.forms['google-sheet']
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'post', body: new FormData(form)})
-        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyLNdaD5IJUsNVIMOvpzeB9cH47fmCNHUx0MH-iBzbG8SX5GcKD5ELKr_dmx_wayX95ZQ/exec';
+        const form = document.forms['google-sheet'];
+        
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+       
+            const button = form.querySelector('button');
+            button.disabled = true;
+            button.innerText = "Sending...";
+            
+            fetch(scriptURL, {
+                method: 'post',
+                body: new FormData(form)
+            })
+            .then(response => {
+                alert("Thanks for Contacting us..! We Will Contact You Soon...");
+             
+                form.reset();
+                button.disabled = false;
+                button.innerText = "Send Message";
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                alert("Sorry, something went wrong. Please try again.");
+           
+                button.disabled = false;
+                button.innerText = "Send Message";
+            });
+        });
+    </script>
+
 
     <footer>
         <p>&copy; 2025 AutoSOS. All Rights Reserved.</p>
@@ -126,3 +149,4 @@
     </script>
 </body>
 </html>
+
