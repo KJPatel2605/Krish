@@ -15,7 +15,7 @@
     <section class="hero">
         <img src="car-accident.jpg" alt="Car Accident Detection">
         <h2>Car Accidents Are a Global Crisis</h2>
-        <p>Every year, over *1.35 million* people die in car accidents, and millions more are injured. Many accidents happen in remote areas where emergency help is delayed.</p>
+        <p>Every year, over 1.35 million people die in car accidents, and millions more are injured. Many accidents happen in remote areas where emergency help is delayed.</p>
     </section>
 
     <section class="problem">
@@ -24,30 +24,14 @@
         <p>When a serious crash happens, victims may be unable to call for help due to injuries or loss of consciousness. In remote areas, poor signal reception makes calling for help even harder.</p>
     </section>
 
-
+    <p id="tab-prompt">Click on a tab to learn more:</p>
     <button onclick="showTab('tab')">Table</button>
     <button onclick="showTab('sol')">Solution</button>
-    <button onclick="showTab('hdiw')">How do it work</button>
-
+    <button onclick="showTab('hdiw')">How It Works</button>
 
     <div id="tab" style="display:none;">
-    
+        <!-- Table content here -->
     </div>
-
-    <script>
-        function showTab(tabId) {
-       
-            var sections = document.querySelectorAll('#tab, #sol, #hdiw');
-            sections.forEach(function(section) {
-                section.style.display = 'none';
-            });
-
-
-            var selectedTab = document.getElementById(tabId);
-            selectedTab.style.display = 'block';
-        }
-    </script>
-
 
     <div id="sol" style="display:none;">
         <section class="solution">
@@ -64,7 +48,6 @@
             </ul>
         </section>
     </div>
-
 
     <div id="hdiw" style="display:none;">
         <section class="how-it-works">
@@ -102,18 +85,44 @@
     <section class="contact">
         <h2>Contact Us</h2>
         <p>Have questions? Get in touch.</p>
-        <form>
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
+        <form method="post" name="google-sheet">
+            <input type="text" name="Name" placeholder="Your Name" required>
+            <input type="email" name="Email" placeholder="Your Email" required>
+            <textarea name="Message" placeholder="Your Message" cols="6" required></textarea>
             <button class="buttons" type="submit">Send Message</button>
         </form>
     </section>
+    
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLNdaD5IJUsNVIMOvpzeB9cH47fmCNHUx0MH-iBzbG8SX5GcKD5ELKr_dmx_wayX95ZQ/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'post', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 
     <footer>
         <p>&copy; 2025 AutoSOS. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        function showTab(tabId) {
+      
+            document.getElementById('tab-prompt').style.display = 'none';
 
+
+            var sections = document.querySelectorAll('#tab, #sol, #hdiw');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            var selectedTab = document.getElementById(tabId);
+            selectedTab.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
